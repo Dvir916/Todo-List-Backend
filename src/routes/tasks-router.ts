@@ -14,16 +14,6 @@ tasksRouter.get('/', async (req, res) => {
   }
 });
 
-// tasksRouter.get('/lastID', async (req, res) => {
-//   try {
-//     const todos = await getRepository(Todo).find({ order: { id: 'DESC' } });
-//     res.json(todos[0].id);
-//   } catch (error) {
-//     console.error('Error executing database query:', error);
-//     res.status(500).json({ error: 'Internal server error' });
-//   }
-// });
-
 tasksRouter.post('/', async (req, res) => {
   try {
     const { text } = req.body;

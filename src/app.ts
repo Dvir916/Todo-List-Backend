@@ -6,8 +6,6 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import { ApolloServer } from 'apollo-server-express';
 import { ApiRouter } from './routes/api';
-import { typeDefs } from './graphql/schema';
-import { resolvers } from './graphql/resolvers';
 
 dotenv.config();
 
@@ -24,11 +22,6 @@ if (IS_DEV) {
   app.use(cors());
 }
 
-const apolloServer = new ApolloServer({
-  typeDefs,
-  resolvers,
-});
-
 let apolloCors;
 if (IS_DEV) {
   apolloCors = {
@@ -36,8 +29,6 @@ if (IS_DEV) {
     credentials: true,
   };
 }
-
-apolloServer.applyMiddleware({ app, cors: apolloCors });
 
 app.use(ApiRouter);
 
