@@ -10,5 +10,9 @@ export const typeDefs = gql`
   type Query {
     root: String
     Tasks: [Todo]
+    lastId: Int
+  }
+  type Mutation {
+    CreateTask(text: String): String
   }
 `;

@@ -5,7 +5,6 @@ import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import { ApolloServer } from 'apollo-server-express';
-import { ApiRouter } from './routes/api';
 import { typeDefs } from './graphql/schema';
 import { resolvers } from './graphql/resolvers';
 
@@ -38,7 +37,5 @@ if (IS_DEV) {
 }
 
 apolloServer.applyMiddleware({ app, cors: apolloCors });
-
-app.use(ApiRouter);
 
 export { app };
