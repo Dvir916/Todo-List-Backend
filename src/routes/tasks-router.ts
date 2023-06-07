@@ -16,7 +16,7 @@ tasksRouter.get('/', async (req, res) => {
 
 tasksRouter.post('/', async (req, res) => {
   try {
-    const { text } = req.body;
+    const text = req.body.text as string;
     const todo = getRepository(Todo).create({
       text,
       isComplete: false,
@@ -33,17 +33,18 @@ tasksRouter.delete('/:id', async (req, res) => {
   try {
     const { id } = req.params;
     await getRepository(Todo).delete(id);
-    res.json({ message: `Todo with id ${id} was deleted successfully!` });
+    res.json(`Todo with id ${id} was deleted successfully!`);
   } catch (error) {
     console.error('Error executing database query:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 });
 
-tasksRouter.patch('/statuses', async (req, res) => {
+tasksRouter.patch('/:id', async (req, res) => {
   try {
-    const { complete, id } = req.body;
-    await getRepository(Todo).update(id, { isComplete: complete });
+    const { id } = req.params;
+    const isComplete = req.body.isComplete as boolean;
+    await getRepository(Todo).update(id, { isComplete });
     res.json(`Todo with id ${id} updated successfully!`);
   } catch (error) {
     console.error('Error executing database query:', error);
