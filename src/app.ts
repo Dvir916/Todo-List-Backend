@@ -39,6 +39,6 @@ if (IS_DEV) {
 
 apolloServer.applyMiddleware({ app, cors: apolloCors });
 
-// app.use(ApiRouter);
+app.use(ApiRouter);
 
 export { app };
