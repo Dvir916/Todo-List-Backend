@@ -1,6 +1,6 @@
 import { getConnection } from 'typeorm';
 
-export const getTodoId = () => getConnection().query(`SELECT * FROM "Todo"`);
+export const getAllTodo = () => getConnection().query(`SELECT * FROM "Todo"`);
 
 export const getAllId = () => getConnection().query(`SELECT id FROM "Todo"`);
 

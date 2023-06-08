@@ -1,9 +1,8 @@
-import { getAllId, getTodoId } from '../utils';
+import { getAllId, getAllTodo } from '../utils';
 
 export const resolvers = {
   Query: {
-    root: () => 'Hello World!',
-    Tasks: () => getTodoId(),
+    Tasks: () => getAllTodo(),
     lastId: async () => {
       const ids = await getAllId();
       return ids[ids.length - 1].id;
