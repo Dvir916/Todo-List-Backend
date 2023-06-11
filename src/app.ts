@@ -31,7 +31,7 @@ const apolloServer = new ApolloServer({
 let apolloCors;
 if (IS_DEV) {
   apolloCors = {
-    origin: 'http://localhost:3001',
+    origin: 'http://localhost:3000',
     credentials: true,
   };
 }

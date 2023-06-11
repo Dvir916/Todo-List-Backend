@@ -8,13 +8,12 @@ export const typeDefs = gql`
   }
 
   type Query {
-    Tasks: [Todo]
-    lastId: Int
+    tasks: [Todo]
   }
 
   type Mutation {
-    CreateTask(text: String): Todo
-    DeleteTask(id: ID): String
-    ToggleCompleteTask(id: ID, isComplete: Boolean): Todo
+    createTask(text: String): Todo
+    deleteTask(id: ID): String
+    toggleCompleteTask(id: ID, isComplete: Boolean): String
   }
 `;
