@@ -1,7 +1,7 @@
 import { getRepository } from 'typeorm';
 import { Todo } from './entities/todo';
 
-export const setNewTask = async (text: string) => {
+export const createNewTask = async (text: string) => {
   const todo = getRepository(Todo).create({
     text,
     isComplete: false,

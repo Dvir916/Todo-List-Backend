@@ -1,19 +1,19 @@
 import { gql } from 'apollo-server-express';
 
 export const typeDefs = gql`
-  type Todo {
-    id: ID
-    text: String
-    isComplete: Boolean
+  type Task {
+    id: String!
+    text: String!
+    isComplete: Boolean!
   }
 
   type Query {
-    tasks: [Todo]
+    tasks: [Task]!
   }
 
   type Mutation {
-    createTask(text: String): Todo
-    deleteTask(id: ID): String
-    toggleCompleteTask(id: ID, isComplete: Boolean): String
+    createTask(text: String!): Task!
+    deleteTask(id: ID!): String!
+    toggleCompleteTask(id: String!, isComplete: Boolean!): String!
   }
 `;
